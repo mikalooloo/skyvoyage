@@ -1,11 +1,4 @@
-[gd_scene load_steps=6 format=2]
-
-[ext_resource path="res://MovingBackground.gdshader" type="Shader" id=1]
-
-[sub_resource type="ShaderMaterial" id=4]
-resource_local_to_scene = true
-shader = ExtResource( 1 )
-shader_param/scroll_speed = 0.2
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.536313, 1 )
@@ -19,7 +12,6 @@ fill_from = Vector2( 1, 0 )
 extents = Vector2( 16.5, 31.5 )
 
 [node name="TreeStump" type="StaticBody2D"]
-material = SubResource( 4 )
 collision_layer = 2
 
 [node name="Sprite" type="Sprite" parent="."]

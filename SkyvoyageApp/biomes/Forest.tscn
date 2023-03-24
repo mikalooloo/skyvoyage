@@ -34,7 +34,6 @@ shader_param/scroll_speed = 0.2
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 320, 180 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer1"]
@@ -43,7 +42,6 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 320, 180 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer2"]
@@ -60,7 +58,6 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 320, 180 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer4"]
