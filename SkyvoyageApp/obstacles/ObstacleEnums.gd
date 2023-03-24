@@ -19,6 +19,6 @@ enum Speed {
 static func get_starting_position(StartingPosition):
 	match (StartingPosition):
 		Position.TOP:
-			return Vector2(500,0)
+			return Vector2(400,0)
 		Position.BOTTOM:
-			return Vector2(500, 180)
+			return Vector2(400, 180)

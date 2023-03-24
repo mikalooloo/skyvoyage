@@ -77,6 +77,7 @@ animations = [ {
 extents = Vector2( 6.1875, 2.75 )
 
 [node name="Player" type="KinematicBody2D"]
+visible = false
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -84,7 +85,7 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 14 )
 animation = "Fly"
-frame = 7
+frame = 5
 playing = true
 centered = false
 flip_h = true
