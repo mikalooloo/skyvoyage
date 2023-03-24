@@ -74,7 +74,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 4.625, 2.3125 )
+extents = Vector2( 6.1875, 2.75 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
@@ -84,12 +84,12 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 14 )
 animation = "Fly"
-frame = 2
+frame = 7
 playing = true
 centered = false
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 14.75, 17.375 )
+[node name="PlayerBody" type="CollisionShape2D" parent="."]
+position = Vector2( 14.625, 17 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 23 )

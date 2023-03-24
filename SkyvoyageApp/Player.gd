@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
 # *** MOVEMENT ***
-const ACCELERATION = 700
-const MAX_SPEED = 200
-const FRICTION = 800
+const ACCELERATION: int = 700
+const MAX_SPEED: int = 200
+const FRICTION: int = 800
 
-var velocity = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
 
 # *** SPRITES ***
-onready var animation = $AnimatedSprite
+onready var animation: AnimatedSprite = $AnimatedSprite
 
+# *** METHODS ***
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

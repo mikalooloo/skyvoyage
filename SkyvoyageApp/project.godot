@@ -8,10 +8,24 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://obstacles/ObstacleEnums.gd"
+} ]
+_global_script_class_icons={
+"Obstacle": ""
+}
+
 [application]
 
 config/name="Skyvoyage"
 run/main_scene="res://Game.tscn"
+
+[autoload]
+
+Signals="*res://Signals.gd"
 
 [display]
 
