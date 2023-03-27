@@ -104,6 +104,7 @@ ui_down={
 2d_physics/layer_1="player"
 2d_physics/layer_2="stop_player"
 2d_physics/layer_3="kill_player"
+2d_physics/layer_4="reward_player"
 
 [physics]
 

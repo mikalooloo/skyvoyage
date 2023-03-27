@@ -1,25 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://obstacles/MovingObstacle.gd" type="Script" id=1]
-
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.536313, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.363128, 0.363128, 0.363128, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
-fill_from = Vector2( 1, 0 )
+[ext_resource path="res://obstacles/Forest/VillagePropsAtlasTexture.tres" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 16.5, 31.5 )
+extents = Vector2( 47.5625, 41.2188 )
 
 [node name="TreeStump" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -63 )
-scale = Vector2( 0.515625, 0.984375 )
-texture = SubResource( 2 )
+position = Vector2( -17, -103 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -27,6 +20,7 @@ position = Vector2( 16.5, -31.5 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 30.9375, -10.2813 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

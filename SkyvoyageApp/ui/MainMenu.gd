@@ -5,6 +5,8 @@ onready var playButton: Button = find_node("PlayButton")
 # *** STARTING GAME ***
 
 func _ready():
+	if Signals.connect("pressed_mainmenu",self,"openMenu") != 0:
+		print("Error connecting to pressed_mainmenu in MainMenu")
 	if Signals.connect("player_died",self,"openMenu") != 0:
 		print("Error connecting to player_died in MainMenu")
 		
@@ -19,8 +21,9 @@ func _on_PlayButton_pressed():
 	hide()
 
 func _on_ShopButton_pressed():
-	Signals.emit_signal("pressed_shop")
-	hide()
+	#Signals.emit_signal("pressed_shop")
+	#hide()
+	pass
 
 func _on_SettingsButton_pressed():
 	Signals.emit_signal("pressed_settings")

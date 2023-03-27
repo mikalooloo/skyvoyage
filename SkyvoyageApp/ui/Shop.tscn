@@ -1,10 +1,38 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/homespun.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/Shop.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.227451, 0.231373, 0.282353, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.282353, 0.286275, 0.388235, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.105882, 0.109804, 0.184314, 1 )
 border_width_left = 3
 border_width_top = 2
 border_width_right = 3
@@ -19,7 +47,16 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=2]
 default_font = SubResource( 1 )
+Button/styles/focus = SubResource( 4 )
+Button/styles/hover = SubResource( 5 )
 Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.184314, 0.192157, 0.270588, 1 )
+
+[sub_resource type="Theme" id=8]
+Panel/styles/panel = SubResource( 7 )
 
 [node name="Shop" type="MarginContainer"]
 anchor_right = 1.0
@@ -28,14 +65,17 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
+mouse_filter = 1
+script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 25.0
 margin_bottom = 13.0
+mouse_filter = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="BackButton" type="Button" parent="MarginContainer"]
 margin_right = 25.0
 margin_bottom = 13.0
 theme = SubResource( 2 )
@@ -63,11 +103,13 @@ theme = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 27.0
+margin_top = 19.0
 margin_right = -4.0
 margin_bottom = -4.0
+theme = SubResource( 8 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TabContainer/upgrades"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -84,3 +126,6 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+theme = SubResource( 8 )
+
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_BackButton_pressed"]

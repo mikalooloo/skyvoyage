@@ -83,9 +83,10 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
+z_index = 1
 frames = SubResource( 14 )
 animation = "Fly"
-frame = 4
+frame = 6
 playing = true
 centered = false
 flip_h = true

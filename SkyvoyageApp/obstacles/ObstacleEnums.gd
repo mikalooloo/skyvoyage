@@ -16,9 +16,15 @@ enum Speed {
 	VERY_FAST
 }
 
+enum Effect {
+	STOP,
+	KILL,
+	REWARD
+}
+
 static func get_starting_position(StartingPosition):
 	match (StartingPosition):
 		Position.TOP:
 			return Vector2(400,0)
 		Position.BOTTOM:
-			return Vector2(400, 180)
+			return Vector2(400, 182)

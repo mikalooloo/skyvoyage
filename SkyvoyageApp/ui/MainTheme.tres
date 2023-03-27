@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/MainFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/homespun.ttf" type="DynamicFontData" id=2]
@@ -19,8 +19,35 @@ size = 8
 extra_spacing_char = 2
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.105882, 0.109804, 0.172549, 1 )
+border_width_left = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.105882, 0.109804, 0.172549, 1 )
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.105882, 0.109804, 0.172549, 1 )
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color( 0.0941176, 0.0980392, 0.180392, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+border_width_left = 6
+border_width_top = 2
+border_width_right = 6
+border_width_bottom = 2
+border_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+
 [resource]
 default_font = ExtResource( 1 )
 Button/fonts/font = SubResource( 3 )
 Button/styles/focus = SubResource( 1 )
 TabContainer/fonts/font = SubResource( 2 )
+TabContainer/styles/panel = SubResource( 4 )
+TabContainer/styles/tab_bg = SubResource( 5 )
+TabContainer/styles/tab_fg = SubResource( 6 )
