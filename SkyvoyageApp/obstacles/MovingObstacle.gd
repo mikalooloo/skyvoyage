@@ -1,26 +1,43 @@
 extends Node
 
 export (Array, Obstacle.Position) var starting_positions = [Obstacle.Position.BOTTOM]
+export (bool) var variable_position = false
 export (Obstacle.Speed) var speed_setting = Obstacle.Speed.NORMAL
 export (Obstacle.Effect) var effect = Obstacle.Effect.KILL
 
 var speed: float = 75.0
-	
+var starting_position: int
+var stopped: bool = false
+var randomizer: RandomNumberGenerator = RandomNumberGenerator.new()
+
+onready var _collisionArea: Area2D = find_node("CollisionArea")
+
 func _ready():
-	if Signals.connect("player_died",self,"_playerDied") != 0:
+	randomizer.randomize()
+	if Signals.connect("player_dying",self,"stopObstacle") != 0:
+		print("Error connecting to player_dying in MovingObstacle")
+	if Signals.connect("player_died",self,"removeObstacle") != 0:
 		print("Error connecting to player_died in MovingObstacle")
-		
-	self.position = Obstacle.get_starting_position(starting_positions[getPosition()])
+	
+	self.position = Obstacle.get_starting_position(getPosition())
+	if (variable_position):
+		self.position.y += randomizer.randf_range(-10.0,10.0)
 	
 func _physics_process(delta):
-	self.position.x -= speed * delta
+	if not stopped:
+		self.position.x -= speed * delta
 
 func getPosition():
-	var randomizer = RandomNumberGenerator.new()
-	randomizer.randomize()
-	return randomizer.randi_range(0,starting_positions.size()-1)
+	starting_position = starting_positions[randomizer.randi_range(0,starting_positions.size()-1)]
+	return starting_position
 	
-func _on_Area2D_body_entered(body):
+func removeObstacle():
+	queue_free()
+	
+func stopObstacle():
+	stopped = true
+
+func _on_CollisionArea_body_entered(body):
 	if body.name == "Player":
 		match effect:
 			Obstacle.Effect.KILL:
@@ -28,5 +45,8 @@ func _on_Area2D_body_entered(body):
 			Obstacle.Effect.REWARD:
 				Signals.emit_signal("player_reward")
 
-func _playerDied():
-	queue_free()
+func _on_SpawnArea_area_entered(area):
+	if (area.get_name() == "SpawnArea"):
+		Signals.emit_signal("obstacle_pos_invalid", self)
+
+

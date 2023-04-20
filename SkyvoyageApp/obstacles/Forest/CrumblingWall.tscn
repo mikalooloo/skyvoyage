@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/images/TX Village Props.png" type="Texture" id=1]
 [ext_resource path="res://obstacles/MovingObstacle.gd" type="Script" id=2]
@@ -8,8 +8,11 @@ atlas = ExtResource( 1 )
 region = Rect2( 801.813, 141.005, 141.692, 57.76 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 21.0
-height = 94.0
+radius = 14.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 38.5, 53 )
 
 [node name="Obstacle" type="Node2D"]
 script = ExtResource( 2 )
@@ -20,10 +23,21 @@ rotation = -1.5708
 texture = SubResource( 1 )
 centered = false
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 23, -25 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2( 29, -41 )
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2( 18, -25 )
+shape = SubResource( 2 )
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2( 22.5, -52 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_CollisionArea_body_entered"]
+[connection signal="area_entered" from="SpawnArea" to="." method="_on_SpawnArea_area_entered"]

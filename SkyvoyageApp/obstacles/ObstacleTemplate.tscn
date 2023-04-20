@@ -8,8 +8,13 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 centered = false
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_CollisionArea_body_entered"]
+[connection signal="area_entered" from="SpawnArea" to="." method="_on_SpawnArea_area_entered"]

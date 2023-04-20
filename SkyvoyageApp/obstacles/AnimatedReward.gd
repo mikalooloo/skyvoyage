@@ -9,7 +9,7 @@ func endAnimation():
 	stop()
 	frame = get_sprite_frames().get_frame_count(animation_name)
 	
-func _on_Area2D_body_entered(body):
+func _on_CollisionArea_body_entered(body):
 	if body.name == "Player":
 		playAnimation()
 

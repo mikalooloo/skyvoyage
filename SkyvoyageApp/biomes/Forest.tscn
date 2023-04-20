@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/images/ForestPack/DarkForest_Foreground.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/ForestPack/DarkForest_Shadow.png" type="Texture" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://assets/images/ForestPack/DarkForest_Middleground.png" type="Texture" id=4]
 [ext_resource path="res://MovingBackground.gdshader" type="Shader" id=5]
 [ext_resource path="res://obstacles/Spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://obstacles/Forest/TreeStump.tscn" type="PackedScene" id=7]
 [ext_resource path="res://biomes/Biome.gd" type="Script" id=8]
 [ext_resource path="res://obstacles/Forest/Vines.tscn" type="PackedScene" id=9]
-[ext_resource path="res://obstacles/Chest.tscn" type="PackedScene" id=10]
+[ext_resource path="res://obstacles/rewards/Chest.tscn" type="PackedScene" id=10]
 [ext_resource path="res://obstacles/Forest/CrumblingWall.tscn" type="PackedScene" id=11]
 [ext_resource path="res://obstacles/Forest/Stick.tscn" type="PackedScene" id=12]
+[ext_resource path="res://obstacles/Forest/Beetle.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -36,14 +38,17 @@ shader_param/scroll_speed = 0.2
 script = ExtResource( 8 )
 
 [node name="Spawner" parent="." instance=ExtResource( 6 )]
-obstacles = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 11 ) ]
+top_obstacles = [ ExtResource( 9 ), ExtResource( 13 ) ]
+middle_obstacles = [ ExtResource( 13 ), ExtResource( 13 ) ]
+bottom_obstacles = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 7 ) ]
+rewards = [ ExtResource( 10 ) ]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer1"]
+[node name="Sprite1" type="Sprite" parent="ParallaxBackground/Layer1"]
 material = SubResource( 2 )
 texture = ExtResource( 3 )
 centered = false
@@ -51,7 +56,7 @@ centered = false
 [node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer2"]
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/Layer2"]
 material = SubResource( 3 )
 texture = ExtResource( 4 )
 centered = false
@@ -59,7 +64,7 @@ centered = false
 [node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer3"]
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/Layer3"]
 material = SubResource( 4 )
 texture = ExtResource( 2 )
 centered = false
@@ -67,7 +72,7 @@ centered = false
 [node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Layer4"]
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/Layer4"]
 material = SubResource( 5 )
 texture = ExtResource( 1 )
 centered = false
