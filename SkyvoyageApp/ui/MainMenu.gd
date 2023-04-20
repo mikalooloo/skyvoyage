@@ -1,6 +1,6 @@
 extends MarginContainer
 
-onready var playButton: Button = find_node("PlayButton")
+onready var play_button: Button = find_node("PlayButton")
 
 # *** STARTING GAME ***
 
@@ -14,16 +14,15 @@ func _ready():
 
 func openMenu():
 	visible = true
-	playButton.grab_focus()
+	play_button.grab_focus()
 	
 func _on_PlayButton_pressed():
 	Signals.emit_signal("pressed_play")
 	hide()
 
 func _on_ShopButton_pressed():
-	#Signals.emit_signal("pressed_shop")
-	#hide()
-	pass
+	Signals.emit_signal("pressed_shop")
+	hide()
 
 func _on_SettingsButton_pressed():
 	Signals.emit_signal("pressed_settings")

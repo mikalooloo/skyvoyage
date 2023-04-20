@@ -15,8 +15,7 @@ export (Array) var speed = [
 ]
 
 onready var obstacles_list = [top_obstacles, middle_obstacles, bottom_obstacles]
-onready var obstacle_timer: Timer = find_node("ObstacleTimer")
-onready var reward_timer: Timer = find_node("RewardTimer")
+onready var obstacle_timer: Timer = $ObstacleTimer
 
 var randomizer: RandomNumberGenerator = RandomNumberGenerator.new()
 var selected_obstacle_index: int = 0

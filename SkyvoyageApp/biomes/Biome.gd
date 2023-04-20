@@ -8,10 +8,10 @@ export (Array, float) var speeds = [
 ]
 
 onready var backgrounds = [
-	get_node("ParallaxBackground/Layer1/Sprite1").get_material(),
-	get_node("ParallaxBackground/Layer2/Sprite2").get_material(),
-	get_node("ParallaxBackground/Layer3/Sprite3").get_material(),
-	get_node("ParallaxBackground/Layer4/Sprite4").get_material(),
+	$ParallaxBackground/Layer1/Sprite1.get_material(),
+	$ParallaxBackground/Layer2/Sprite2.get_material(),
+	$ParallaxBackground/Layer3/Sprite3.get_material(),
+	$ParallaxBackground/Layer4/Sprite4.get_material(),
 ]
 
 func _ready():

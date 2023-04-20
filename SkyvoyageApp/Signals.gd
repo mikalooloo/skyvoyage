@@ -13,5 +13,10 @@ signal player_dying
 signal player_slowed
 signal player_reward
 
+# *** SHOP ***
+signal pressed_shop_item(item)
+signal player_equipped_skin(skin)
+signal player_equipped_powerup(powerup)
+
 # *** OBSTACLES ***
 signal obstacle_pos_invalid(obs)

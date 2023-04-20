@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=11 format=2]
+
+[ext_resource path="res://shop/ShopItems.gd" type="Script" id=1]
+[ext_resource path="res://shop/items/BlueJay.tres" type="Resource" id=2]
+[ext_resource path="res://shop/items/CedarWaxwing.tres" type="Resource" id=3]
+[ext_resource path="res://shop/items/RubyThroatedHummingbird.tres" type="Resource" id=4]
+[ext_resource path="res://shop/items/AmericanRobin.tres" type="Resource" id=5]
+[ext_resource path="res://shop/items/StellersJay.tres" type="Resource" id=6]
+[ext_resource path="res://shop/items/HouseFinch.tres" type="Resource" id=7]
+[ext_resource path="res://shop/items/AmericanCrow.tres" type="Resource" id=8]
+[ext_resource path="res://shop/items/NothernCardinal.tres" type="Resource" id=9]
+[ext_resource path="res://shop/items/BlackCappedChickadee.tres" type="Resource" id=10]
+
+[resource]
+script = ExtResource( 1 )
+birds = [ ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ) ]
+powerups = [ null, null, null ]
