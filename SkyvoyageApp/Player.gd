@@ -10,6 +10,7 @@ var dying: bool = false
 
 # *** SPRITES ***
 onready var animation: AnimatedSprite = $AnimatedSprite
+onready var playerBody: CollisionShape2D = $PlayerBody
 
 # *** METHODS ***
 func _ready():
@@ -40,9 +41,12 @@ func _die():
 	visible = false
 	velocity = Vector2.ZERO
 
-func _equipSkin(frames):
+func _equipSkin(frames, frame_speed, hitbox, movement):
+	animation.position = movement
 	animation.frames = frames
+	animation.speed_scale = frame_speed
 	animation.animation = "fly"
+	playerBody.shape = hitbox
 	
 func _physics_process(delta):
 	if visible and not dying:

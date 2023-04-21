@@ -30,6 +30,6 @@ func isEquipped(item_name):
 		return true
 	return false
 
-func equipSkin(item_name, frames):
+func equipSkin(item_name, frames, frames_speed, hitbox, movement):
 	_currently_equipped = item_name
-	Signals.emit_signal("player_equipped_skin", frames)
+	Signals.emit_signal("player_equipped_skin", frames, frames_speed, hitbox, movement)

@@ -1,7 +1,11 @@
-[gd_resource type="Resource" load_steps=16 format=2]
+[gd_resource type="Resource" load_steps=17 format=2]
 
 [ext_resource path="res://shop/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/BirdPack/spritesheet_crow.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 4.0
+height = 1.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -73,5 +77,8 @@ animations = [ {
 script = ExtResource( 1 )
 name = "American Crow"
 sprite_frames = SubResource( 1 )
+sprite_body = SubResource( 14 )
+sprite_speed = 2.5
+sprite_move = Vector2( 0, 0 )
 description = "intelligent, mischievous"
 cost = 0

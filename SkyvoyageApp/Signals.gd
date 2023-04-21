@@ -18,7 +18,7 @@ signal player_reward
 
 # *** SHOP ***
 signal pressed_shop_item(item)
-signal player_equipped_skin(frames)
+signal player_equipped_skin(frames, frame_speed, hitbox, movement)
 signal player_equipped_powerup(powerup)
 
 # *** OBSTACLES ***

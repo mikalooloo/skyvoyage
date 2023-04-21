@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/images/BirdPack/spritesheet_blue jay.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/BirdPack/spritesheet_hummingbird.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 1 )
@@ -15,15 +16,15 @@ region = Rect2( 16, 32, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 32, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 16, 16 )
 
@@ -46,7 +47,7 @@ animations = [ {
 "name": "die",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
 "loop": true,
 "name": "fly",
 "speed": 5.0
@@ -57,12 +58,27 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=40]
+animations = [ {
+"frames": [ SubResource( 41 ), SubResource( 42 ) ],
+"loop": true,
+"name": "fly",
+"speed": 5.0
+} ]
+
 [sub_resource type="CapsuleShape2D" id=34]
 radius = 4.5
-height = 3.0
+height = 2.0
 
 [node name="Player" type="KinematicBody2D"]
-visible = false
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -72,8 +88,22 @@ scale = Vector2( 2, 2 )
 z_index = 1
 frames = SubResource( 30 )
 animation = "fly"
-frame = 2
+frame = 1
 speed_scale = 1.5
+playing = true
+centered = false
+flip_h = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -5, -20 )
+rotation = 0.479966
+scale = Vector2( 2, 2 )
+z_index = 1
+frames = SubResource( 40 )
+animation = "fly"
+frame = 1
+speed_scale = 1.7
 playing = true
 centered = false
 flip_h = true
@@ -85,3 +115,4 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 34 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2" to="." method="_on_AnimatedSprite_animation_finished"]

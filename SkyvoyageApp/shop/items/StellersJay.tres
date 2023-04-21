@@ -1,7 +1,11 @@
-[gd_resource type="Resource" load_steps=13 format=2]
+[gd_resource type="Resource" load_steps=14 format=2]
 
 [ext_resource path="res://shop/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/BirdPack/spritesheet_steller's jay.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 3.0
+height = 6.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
@@ -61,5 +65,8 @@ animations = [ {
 script = ExtResource( 1 )
 name = "Steller's Jay"
 sprite_frames = SubResource( 1 )
+sprite_body = SubResource( 11 )
+sprite_speed = 1.5
+sprite_move = Vector2( 0, 0 )
 description = "edgy blue jay"
 cost = 0

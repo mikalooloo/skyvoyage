@@ -1,7 +1,11 @@
-[gd_resource type="Resource" load_steps=17 format=2]
+[gd_resource type="Resource" load_steps=18 format=2]
 
 [ext_resource path="res://shop/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/BirdPack/spritesheet_chickadee.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 3.0
+height = 3.0
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -77,5 +81,8 @@ animations = [ {
 script = ExtResource( 1 )
 name = "Black-capped Chickadee"
 sprite_frames = SubResource( 14 )
+sprite_body = SubResource( 15 )
+sprite_speed = 2.5
+sprite_move = Vector2( 0, 0 )
 description = "curious, quick"
 cost = 0

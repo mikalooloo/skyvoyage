@@ -12,8 +12,7 @@ onready var button = find_node("Button")
 # *** RIGHT SIDE ***
 onready var birds_display = find_node("BirdDisplay")
 
-var current_item_name = ""
-var current_item_cost = 0
+var current_item
 
 func _ready():
 	if Signals.connect("pressed_shop",self,"_openShop") != 0:
@@ -28,17 +27,16 @@ func _openShop():
 
 func _openItem(item):
 	item_viewer.visible = true
-	current_item_name = item.item_name
-	name_label.text = item.item_name
-	current_item_cost = item.item_cost
-	description_label.text = item.item_description
-	animated_sprite.frames = item.item_sprite.frames
+	current_item = item
+	name_label.text = item.name
+	description_label.text = item.description
+	animated_sprite.frames = item.sprite_frames
 	animated_sprite.animation = "fly"
 	# if not owned, make sure button says "buy for x coins"
-	if !Inventory.hasItem(current_item_name):
-		button.text = "buy for " + str(item.item_cost) + " coins"
+	if !Inventory.hasItem(item.name):
+		button.text = "buy for " + str(item.cost) + " coins"
 	else: # if owned, make sure button says "equip" or "equipped"
-		if Inventory.isEquipped(current_item_name):
+		if Inventory.isEquipped(item.name):
 			button.text = "equipped"
 		else:
 			button.text = "equip"
@@ -50,12 +48,13 @@ func _on_BackButton_pressed():
 func _on_Button_pressed():
 	button.release_focus()
 	# if not owned, buy it
-	if !Inventory.hasItem(current_item_name):
-		if Inventory.buyItem(current_item_name, current_item_cost):
+	if !Inventory.hasItem(current_item.name):
+		if Inventory.buyItem(current_item.name, current_item.cost):
 			button.text = "equip"
 	else: # if owned, equip it
 		button.text = "equipped"
 		if tab_container.current_tab == 1:
-			Inventory.equipSkin(current_item_name, animated_sprite.frames)
+			Inventory.equipSkin(current_item.name, 
+				current_item.sprite_frames, current_item.sprite_speed, current_item.sprite_body, current_item.sprite_move)
 		else:
 			Signals.emit_signal("player_equipped_powerup")
