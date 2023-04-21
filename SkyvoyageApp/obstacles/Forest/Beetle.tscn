@@ -144,15 +144,15 @@ extents = Vector2( 17, 16.5 )
 
 [node name="Obstacle" type="Node2D"]
 script = ExtResource( 1 )
-starting_positions = [ 0, 1 ]
+starting_positions = [ 1 ]
 variable_position = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 10 )
-z_index = 2
+z_index = 1
 frames = SubResource( 9 )
 animation = "fly"
-frame = 5
+frame = 3
 playing = true
 centered = false
 script = ExtResource( 2 )

@@ -38,7 +38,7 @@ shader_param/scroll_speed = 0.2
 script = ExtResource( 8 )
 
 [node name="Spawner" parent="." instance=ExtResource( 6 )]
-top_obstacles = [ ExtResource( 9 ), ExtResource( 13 ) ]
+top_obstacles = [ ExtResource( 9 ), ExtResource( 9 ) ]
 middle_obstacles = [ ExtResource( 13 ), ExtResource( 13 ) ]
 bottom_obstacles = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 7 ) ]
 rewards = [ ExtResource( 10 ) ]

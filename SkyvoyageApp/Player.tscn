@@ -102,7 +102,6 @@ scale = Vector2( 2, 2 )
 z_index = 1
 frames = SubResource( 40 )
 animation = "fly"
-frame = 1
 speed_scale = 1.7
 playing = true
 centered = false

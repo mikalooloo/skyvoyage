@@ -69,4 +69,4 @@ sprite_body = SubResource( 11 )
 sprite_speed = 1.5
 sprite_move = Vector2( 0, 0 )
 description = "edgy blue jay"
-cost = 0
+cost = 25

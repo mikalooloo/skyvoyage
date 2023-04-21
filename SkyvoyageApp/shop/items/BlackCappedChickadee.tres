@@ -85,4 +85,4 @@ sprite_body = SubResource( 15 )
 sprite_speed = 2.5
 sprite_move = Vector2( 0, 0 )
 description = "curious, quick"
-cost = 0
+cost = 30

@@ -51,16 +51,19 @@ func _moveObstacle(obs):
 		_stopSpawning()
 		_startSpawning()
 	
+func _startObstacleTimer(low=0.5,high=1.0):
+	obstacle_timer.start(randomizer.randf_range(low,high))
+	
 func _on_ObstacleTimer_timeout():
 	if (randomizer.randi_range(0,5) != 0):
 		_spawnObstacle()
 	else:
 		_spawnReward()
-	_startObstacleTimer()
+	_startObstacleTimer(0.1,0.5)
 
 func _setupChild(newChild):
 	var tmp = newChild.instance()
-	tmp.speed = speed[tmp.speed_setting]
+	tmp.speed = speed[3]
 	last_obstacle = tmp
 	call_deferred("add_child",tmp)
 	
@@ -83,9 +86,6 @@ func _spawnObstacle():
 	last_selected_obstacle_indexes[1] = last_selected_obstacle_indexes[0]
 	last_selected_obstacle_indexes[0] = selected_obstacle_index
 	_setupChild(obstacles[selected_obstacle_index])
-	
-func _startObstacleTimer(low=0.5,high=1.0):
-	obstacle_timer.start(randomizer.randf_range(low,high))
 
 # *** REWARDS ***
 func _spawnReward():

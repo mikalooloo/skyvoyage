@@ -73,4 +73,4 @@ sprite_body = SubResource( 12 )
 sprite_speed = 1.5
 sprite_move = Vector2( 0, 0 )
 description = "pretty, fruity"
-cost = 0
+cost = 30
