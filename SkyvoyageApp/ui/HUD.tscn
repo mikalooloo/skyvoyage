@@ -15,3 +15,17 @@ margin_left = 10.0
 margin_top = 7.0
 margin_right = -287.0
 margin_bottom = -160.0
+
+[node name="Powerup" type="TextureRect" parent="."]
+margin_left = 284.0
+margin_top = 1.0
+margin_right = 314.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 30, 30 )
+expand = true
+
+[node name="Time" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 158.0
+margin_right = 50.0
+margin_bottom = 172.0

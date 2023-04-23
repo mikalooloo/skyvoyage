@@ -32,7 +32,7 @@ func _openItem(item):
 	current_item = item
 	name_label.text = item.name
 	description_label.text = item.description
-	if item.sprite_frames:
+	if item.skin:
 		animated_sprite.frames = item.sprite_frames
 		animated_sprite.animation = "fly"
 		item_texture.texture = null
@@ -58,14 +58,18 @@ func _on_Button_pressed():
 	if !Inventory.hasItem(current_item.name):
 		if Inventory.buyItem(current_item.name, current_item.cost):
 			item_button.text = "equip"
-	else: # if owned, equip it
-		item_button.text = "equipped"
-		if tab_container.current_tab == 1:
-			Inventory.equipSkin(current_item.name, 
-				current_item.sprite_frames, current_item.sprite_speed, current_item.sprite_body, current_item.sprite_move)
+	else: # if owned, equip/unequip it
+		if item_button.text == "equip":
+			item_button.text = "equipped"
+			if tab_container.current_tab == 1:
+				Inventory.equipSkin(current_item.name, 
+					current_item.sprite_frames, current_item.sprite_speed, current_item.sprite_body, current_item.sprite_move)
+			else:
+				Inventory.equipPowerup(current_item.name, current_item.texture, current_item.sprite_frames, current_item.sprite_speed)
 		else:
-			Inventory.equipPowerup(current_item.name)
-
+			item_button.text = "equip"
+			Inventory.unequipPowerup()
+			
 func _on_MoneyCounter_gui_input(event):
 	if event.is_action_pressed("ui_select"):
 		Signals.emit_signal("money_changed", 25)

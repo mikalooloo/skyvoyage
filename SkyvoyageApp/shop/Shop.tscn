@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://shop/Shop.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://shop/ItemsDisplay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/heart/heart_full.png" type="Texture" id=5]
 [ext_resource path="res://ui/MoneyCounter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/ButtonTheme.tres" type="Theme" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
@@ -25,39 +26,13 @@ font_data = ExtResource( 3 )
 [sub_resource type="Theme" id=18]
 default_font = SubResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=21]
-bg_color = Color( 0.32549, 0.329412, 0.411765, 1 )
-border_width_top = 3
-border_width_bottom = 4
-border_color = Color( 0.32549, 0.329412, 0.411765, 1 )
-shadow_size = 3
-
-[sub_resource type="StyleBoxFlat" id=19]
-bg_color = Color( 0.262745, 0.270588, 0.384314, 1 )
-border_width_top = 3
-border_width_bottom = 4
-border_color = Color( 0.262745, 0.270588, 0.384314, 1 )
-shadow_size = 5
-
-[sub_resource type="StyleBoxFlat" id=22]
-bg_color = Color( 0.262745, 0.266667, 0.345098, 1 )
-border_width_top = 3
-border_width_bottom = 4
-border_color = Color( 0.262745, 0.266667, 0.345098, 1 )
-shadow_size = 3
-
-[sub_resource type="Theme" id=20]
-Button/styles/hover = SubResource( 21 )
-Button/styles/normal = SubResource( 19 )
-Button/styles/pressed = SubResource( 22 )
-
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.184314, 0.192157, 0.270588, 1 )
 
 [sub_resource type="Theme" id=8]
 Panel/styles/panel = SubResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
 border_width_left = 3
 border_width_top = 2
@@ -66,7 +41,7 @@ border_width_bottom = 2
 border_color = Color( 0.227451, 0.231373, 0.282353, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0.282353, 0.286275, 0.388235, 1 )
 border_width_left = 3
 border_width_top = 2
@@ -75,7 +50,7 @@ border_width_bottom = 2
 border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
 border_width_left = 3
 border_width_top = 2
@@ -84,7 +59,7 @@ border_width_bottom = 2
 border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=26]
 bg_color = Color( 0.105882, 0.109804, 0.184314, 1 )
 border_width_left = 3
 border_width_top = 2
@@ -93,17 +68,17 @@ border_width_bottom = 2
 border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
 border_blend = true
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=27]
 size = 8
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=2]
-default_font = SubResource( 1 )
-Button/styles/focus = SubResource( 4 )
-Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = SubResource( 6 )
+default_font = SubResource( 27 )
+Button/styles/focus = SubResource( 23 )
+Button/styles/hover = SubResource( 24 )
+Button/styles/normal = SubResource( 25 )
+Button/styles/pressed = SubResource( 26 )
 
 [node name="Shop" type="MarginContainer"]
 anchor_right = 1.0
@@ -191,7 +166,7 @@ valign = 1
 margin_top = 140.0
 margin_right = 153.0
 margin_bottom = 156.0
-theme = SubResource( 20 )
+theme = ExtResource( 7 )
 text = "buy"
 
 [node name="TabContainer" type="TabContainer" parent="ShopHContainer"]

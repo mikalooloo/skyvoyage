@@ -9,8 +9,9 @@ var killer = false
 
 func _on_CollisionArea_body_entered(body):
 	if body.name == "Player" and !killer:
-		Signals.emit_signal("player_hurt", "dying")
-		killer = true
+		if !Inventory.preventDeath():
+			Signals.emit_signal("player_dying","hurt")
+			killer = true
 		if (global_position - body.position).x > 0:
 			play(left_attack_anim_name)
 		else:

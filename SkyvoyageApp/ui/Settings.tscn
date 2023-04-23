@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fonts/homespun.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/MainTheme.tres" type="Theme" id=2]
+[ext_resource path="res://ui/Settings.gd" type="Script" id=3]
+[ext_resource path="res://ui/ButtonTheme.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.227451, 0.231373, 0.282353, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.282353, 0.286275, 0.388235, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.184314, 0.188235, 0.282353, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.105882, 0.109804, 0.184314, 1 )
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color( 0.117647, 0.121569, 0.160784, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 1 )
+Button/styles/focus = SubResource( 4 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 6 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="BackButton" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = -287.0
+margin_bottom = -160.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 7 )
+text = "back"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 38.0
+margin_top = 7.0
+margin_right = -33.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 249, 165 )
+theme = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_right = 249.0
+margin_bottom = 165.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 249.0
+margin_bottom = 17.0
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 21.0
+margin_right = 249.0
+margin_bottom = 38.0
+text = "Settings"
+align = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 249.0
+margin_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 63.0
+margin_right = 249.0
+margin_bottom = 80.0
+
+[node name="All-time Highscore" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 188.0
+margin_bottom = 17.0
+text = "      All-time Highscore: "
+
+[node name="Highscore0" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 192.0
+margin_right = 200.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 249.0
+margin_bottom = 101.0
+
+[node name="Your Session Highscore" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 201.0
+margin_bottom = 17.0
+text = "   Your Session Highscore: "
+
+[node name="Highscore1" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 205.0
+margin_right = 213.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 105.0
+margin_right = 249.0
+margin_bottom = 122.0
+
+[node name="ResetButton" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 126.0
+margin_right = 249.0
+margin_bottom = 142.0
+theme = ExtResource( 4 )
+text = "reset"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]

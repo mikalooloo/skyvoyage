@@ -37,14 +37,15 @@ func getPosition():
 func removeObstacle():
 	queue_free()
 	
-func stopObstacle():
+func stopObstacle(_animate):
 	stopped = true
 
 func _on_CollisionArea_body_entered(body):
 	if body.name == "Player":
 		match effect:
 			Obstacle.Effect.KILL:
-				Signals.emit_signal("player_hurt", "died")
+				if !Inventory.preventDeath():
+					Signals.emit_signal("player_dying","die")
 			Obstacle.Effect.REWARD:
 				Signals.emit_signal("player_reward")
 

@@ -75,6 +75,7 @@ animations = [ {
 
 [resource]
 script = ExtResource( 1 )
+skin = true
 name = "American Crow"
 sprite_frames = SubResource( 1 )
 sprite_body = SubResource( 14 )

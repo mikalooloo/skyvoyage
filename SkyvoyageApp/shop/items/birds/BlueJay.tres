@@ -63,6 +63,7 @@ animations = [ {
 
 [resource]
 script = ExtResource( 1 )
+skin = true
 name = "Blue Jay"
 sprite_frames = SubResource( 10 )
 sprite_body = SubResource( 11 )

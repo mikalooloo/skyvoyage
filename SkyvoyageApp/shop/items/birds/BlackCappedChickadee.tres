@@ -79,6 +79,7 @@ animations = [ {
 
 [resource]
 script = ExtResource( 1 )
+skin = true
 name = "Black-capped Chickadee"
 sprite_frames = SubResource( 14 )
 sprite_body = SubResource( 15 )

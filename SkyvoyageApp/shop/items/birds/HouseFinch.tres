@@ -63,6 +63,7 @@ animations = [ {
 
 [resource]
 script = ExtResource( 1 )
+skin = true
 name = "House Finch"
 sprite_frames = SubResource( 4 )
 sprite_body = SubResource( 16 )

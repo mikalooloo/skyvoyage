@@ -16,5 +16,5 @@ func _process(delta):
 func _startBackground():
 	play = true
 
-func _stopBackground():
+func _stopBackground(_animate):
 	play = false

@@ -1,6 +1,7 @@
 extends Resource
 class_name Item
 
+export (bool) var skin = true
 export (String) var name = ""
 export (SpriteFrames) var sprite_frames
 export (CapsuleShape2D) var sprite_body

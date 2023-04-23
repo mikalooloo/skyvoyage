@@ -34,7 +34,7 @@ func _ready():
 	if Signals.connect("obstacle_pos_invalid",self,"_moveObstacle") != 0:
 		print("Error connecting to obstacle_pos_invalid in Spawner")
 
-func _stopSpawning():
+func _stopSpawning(_animate = null):
 	obstacle_timer.stop()
 	last_obstacle = null
 	

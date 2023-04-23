@@ -8,9 +8,9 @@ var display_item
 func displayItem(item):
 	if item is Item:
 		display_item = item
-		if item.texture:
+		if !item.skin:
 			item_texture_rect.texture = item.texture
-		if item.sprite_frames:
+		else:
 			item_sprite.frames = item.sprite_frames
 			item_sprite.animation = "fly"
 			item_sprite.speed_scale = item.sprite_speed

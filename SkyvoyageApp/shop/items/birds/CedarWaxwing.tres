@@ -67,6 +67,7 @@ animations = [ {
 
 [resource]
 script = ExtResource( 1 )
+skin = true
 name = "Cedar Waxwing"
 sprite_frames = SubResource( 1 )
 sprite_body = SubResource( 12 )

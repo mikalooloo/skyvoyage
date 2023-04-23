@@ -1,14 +1,39 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=19 format=2]
 
 [ext_resource path="res://shop/Item.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/blood_swirl/FX007.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/blood_swirl/FX011.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/blood_swirl/FX008.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/blood_swirl/FX015.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/blood_swirl/FX010.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/blood_swirl/FX013.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/blood_swirl/FX009.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/blood_swirl/FX002.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/blood_swirl/FX005.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/blood_swirl/FX006.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/blood_swirl/FX003.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/blood_swirl/FX004.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/blood_swirl/FX001.png" type="Texture" id=14]
+[ext_resource path="res://assets/images/blood_swirl/FX012.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/blood_swirl/FX014.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "effect",
+"speed": 5.0
+} ]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/heart_full.png-080a57468ed7b1911383769dab8131d3.stex"
 
 [resource]
 script = ExtResource( 1 )
+skin = false
 name = "Extra Life"
-sprite_speed = 1.5
+sprite_frames = SubResource( 2 )
+sprite_speed = 2.5
 sprite_move = Vector2( 0, 0 )
 texture = SubResource( 1 )
 description = "will revive you"
