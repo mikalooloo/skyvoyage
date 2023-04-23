@@ -7,10 +7,12 @@ onready var item_viewer = find_node("ItemViewer")
 onready var name_label = find_node("NameLabel")
 onready var description_label = find_node("DescriptionLabel")
 onready var animated_sprite = find_node("AnimatedSprite")
+onready var item_texture = find_node("ItemViewTexture")
 onready var item_button = find_node("Button")
 
 # *** RIGHT SIDE ***
 onready var birds_display = find_node("BirdDisplay")
+onready var powerups_display = find_node("PowerupsDisplay")
 
 var current_item
 
@@ -23,15 +25,20 @@ func _ready():
 func _openShop():
 	visible = true
 	item_viewer.visible = false
-	birds_display.updateShopDisplay("birds")
+	powerups_display.updateShopDisplay("powerups")
 
 func _openItem(item):
 	item_viewer.visible = true
 	current_item = item
 	name_label.text = item.name
 	description_label.text = item.description
-	animated_sprite.frames = item.sprite_frames
-	animated_sprite.animation = "fly"
+	if item.sprite_frames:
+		animated_sprite.frames = item.sprite_frames
+		animated_sprite.animation = "fly"
+		item_texture.texture = null
+	else:
+		item_texture.texture = item.texture
+		animated_sprite.frames = null
 	# if not owned, make sure button says "buy for x coins"
 	if !Inventory.hasItem(item.name):
 		item_button.text = "buy for " + str(item.cost) + " coins"
@@ -57,9 +64,15 @@ func _on_Button_pressed():
 			Inventory.equipSkin(current_item.name, 
 				current_item.sprite_frames, current_item.sprite_speed, current_item.sprite_body, current_item.sprite_move)
 		else:
-			Signals.emit_signal("player_equipped_powerup")
-
+			Inventory.equipPowerup(current_item.name)
 
 func _on_MoneyCounter_gui_input(event):
 	if event.is_action_pressed("ui_select"):
-		Signals.emit_signal("money_changed", 1)
+		Signals.emit_signal("money_changed", 25)
+
+func _on_TabContainer_tab_changed(tab):
+	match tab:
+		0:
+			powerups_display.updateShopDisplay("powerups")
+		1:
+			birds_display.updateShopDisplay("birds")

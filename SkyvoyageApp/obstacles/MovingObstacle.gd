@@ -44,7 +44,7 @@ func _on_CollisionArea_body_entered(body):
 	if body.name == "Player":
 		match effect:
 			Obstacle.Effect.KILL:
-				Signals.emit_signal("player_died")
+				Signals.emit_signal("player_hurt", "died")
 			Obstacle.Effect.REWARD:
 				Signals.emit_signal("player_reward")
 

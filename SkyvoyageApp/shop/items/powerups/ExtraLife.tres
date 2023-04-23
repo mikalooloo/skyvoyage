@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://shop/Item.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/heart_full.png-080a57468ed7b1911383769dab8131d3.stex"
+
+[resource]
+script = ExtResource( 1 )
+name = "Extra Life"
+sprite_speed = 1.5
+sprite_move = Vector2( 0, 0 )
+texture = SubResource( 1 )
+description = "will revive you"
+cost = 50

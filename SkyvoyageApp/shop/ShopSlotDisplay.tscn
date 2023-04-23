@@ -71,22 +71,19 @@ grow_vertical = 2
 rect_min_size = Vector2( 40, 40 )
 theme = SubResource( 8 )
 
-[node name="CenterContainer" type="CenterContainer" parent="Slot"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 26, 26 )
-
-[node name="TextureRect" type="TextureRect" parent="Slot/CenterContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 20.0
-margin_bottom = 20.0
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Slot"]
 position = Vector2( 20, 19 )
 rotation = 0.479966
 scale = Vector2( 1.5, 1.5 )
 flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 140.0
+margin_top = 70.0
+margin_right = 180.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 40, 40 )
+mouse_filter = 2
+expand = true
 
 [connection signal="gui_input" from="Slot" to="." method="_on_Slot_gui_input"]

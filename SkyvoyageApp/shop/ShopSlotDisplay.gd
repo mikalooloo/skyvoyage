@@ -17,4 +17,5 @@ func displayItem(item):
 
 func _on_Slot_gui_input(event):
 	if event.is_action_pressed("ui_select"):
+		print('select')
 		Signals.emit_signal("pressed_shop_item", display_item)

@@ -17,6 +17,8 @@ func _ready():
 	# gameplay signals
 	if Signals.connect("pressed_play",self,"_spawn") != 0:
 		print("Error connecting to pressed_play in Player")
+	if Signals.connect("player_hurt",self,"_hurt") != 0:
+		print("Error connecting to player_hurt in Player")
 	if Signals.connect("player_dying",self,"_dying") != 0:
 		print("Error connecting to player_dying in Player")
 	if Signals.connect("player_died",self,"_die") != 0:
@@ -29,6 +31,15 @@ func _spawn():
 	position = Vector2(75, 45)
 	visible = true
 	animation.play("fly")
+	
+func _hurt(attempt):
+	print('hurt')
+	if Inventory.preventDeath():
+		print('evaded')
+		Signals.emit_signal("player_evaded_death")
+	else:
+		print('not evaded')
+		Signals.emit_signal("player_" + attempt)
 	
 func _dying():
 	dying = true
