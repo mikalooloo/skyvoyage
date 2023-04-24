@@ -106,15 +106,15 @@ margin_right = 249.0
 margin_bottom = 80.0
 
 [node name="All-time Highscore" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
-margin_right = 188.0
+margin_right = 180.0
 margin_bottom = 17.0
-text = "      All-time Highscore: "
+text = "     All-time Highscore: "
 
 [node name="Highscore0" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
-margin_left = 192.0
-margin_right = 200.0
+margin_left = 184.0
+margin_right = 219.0
 margin_bottom = 17.0
-text = "0"
+text = "00:00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 84.0
@@ -122,15 +122,15 @@ margin_right = 249.0
 margin_bottom = 101.0
 
 [node name="Your Session Highscore" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 201.0
+margin_right = 193.0
 margin_bottom = 17.0
-text = "   Your Session Highscore: "
+text = "  Your Session Highscore: "
 
 [node name="Highscore1" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
-margin_left = 205.0
-margin_right = 213.0
+margin_left = 197.0
+margin_right = 232.0
 margin_bottom = 17.0
-text = "0"
+text = "00:00"
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer"]
 margin_top = 105.0

@@ -6,13 +6,8 @@ export (Array, PackedScene) var middle_obstacles
 export (Array, PackedScene) var bottom_obstacles
 export (Array, PackedScene) var rewards
 # And each biome has different definitions of speed
-export (Array) var speed = [
-	50.0,
-	65.0,
-	75.0,
-	85.0,
-	100
-]
+export (float) var default_speed = 70.0
+var speed
 
 onready var obstacles_list = [top_obstacles, middle_obstacles, bottom_obstacles]
 onready var obstacle_timer: Timer = $ObstacleTimer
@@ -33,15 +28,21 @@ func _ready():
 		print("Error connecting to pressed_play in Spawner")
 	if Signals.connect("obstacle_pos_invalid",self,"_moveObstacle") != 0:
 		print("Error connecting to obstacle_pos_invalid in Spawner")
+	if Signals.connect("difficulty_increase",self,"_increaseDifficulty") != 0:
+		print("Error connecting to difficulty_increaes in Spawner")
 
 func _stopSpawning(_animate = null):
 	obstacle_timer.stop()
 	last_obstacle = null
 	
-func _startSpawning():
+func _startSpawning(reset = true):
+	if reset:
+		speed = default_speed
 	_spawnObstacle()
 	_startObstacleTimer(1.0,2.0)
-	#startRewardTimer()
+	
+func _increaseDifficulty(increase):
+	speed += increase
 	
 # *** OBSTACLES ***
 func _moveObstacle(obs):
@@ -49,7 +50,7 @@ func _moveObstacle(obs):
 	if last_obstacle == obs:
 		obs.removeObstacle()
 		_stopSpawning()
-		_startSpawning()
+		_startSpawning(false)
 	
 func _startObstacleTimer(low=0.5,high=1.0):
 	obstacle_timer.start(randomizer.randf_range(low,high))
@@ -63,7 +64,7 @@ func _on_ObstacleTimer_timeout():
 
 func _setupChild(newChild):
 	var tmp = newChild.instance()
-	tmp.speed = speed[3]
+	tmp.speed = speed
 	last_obstacle = tmp
 	call_deferred("add_child",tmp)
 	

@@ -62,7 +62,7 @@ func _equipSkin(frames, frame_speed, hitbox, movement):
 	animation.animation = "fly"
 	playerBody.shape = hitbox
 	
-func _equipPowerup(name, _texture, frames, frame_speed):
+func _equipPowerup(_name, _texture, frames, frame_speed):
 	effect.frames = frames
 	effect.speed_scale = frame_speed
 	

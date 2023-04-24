@@ -27,3 +27,8 @@ signal money_changed(change)
 
 # *** OBSTACLES ***
 signal obstacle_pos_invalid(obs)
+
+# *** TIME ***
+signal playtime_ended(time)
+signal difficulty_increase(increase)
+

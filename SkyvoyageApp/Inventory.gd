@@ -6,6 +6,9 @@ var _currently_equipped_powerup = ""
 var _powerup_used = false
 var _items = ["Blue Jay"]
 
+var _alltime_highscore = 0
+var _current_highscore = 0
+
 func _ready():
 	if Signals.connect("pressed_play",self,"_updateUses") != 0:
 		print("Error connecting to pressed_play in Inventory")
@@ -13,6 +16,8 @@ func _ready():
 		print("Error connecting to reset_data in Inventory")
 	if Signals.connect("money_changed",self,"_updateCoins") != 0:
 		print("Error connecting to money_changed in Inventory")
+	if Signals.connect("playtime_ended",self,"_updateHighscores") != 0:
+		print("Error connecting to playtime_ended in Inventory")
 
 func _updateUses():
 	_powerup_used = false
@@ -23,6 +28,7 @@ func _clearInventory():
 	_currently_equipped_powerup = ""
 	_items.clear()
 	_items.append("Blue Jay")
+	_current_highscore = 0
 
 func _updateCoins(update):
 	_coins += update
@@ -65,3 +71,21 @@ func preventDeath():
 		Signals.emit_signal("player_used_powerup")
 		return true
 	return false
+
+func getAllTimeHighscore():
+	return _makeTimeText(_alltime_highscore)
+	
+func getCurrentHighscore():
+	return _makeTimeText(_current_highscore)
+	
+func _makeTimeText(time):
+	var seconds = fmod(time,60)
+	var minutes = fmod(time, 3600) / 60
+	var str_elapsed = "%02d:%02d" % [minutes, seconds]
+	return str_elapsed
+	
+func _updateHighscores(time):
+	if _alltime_highscore < time:
+		_alltime_highscore = time
+	if _current_highscore < time:
+		_current_highscore = time

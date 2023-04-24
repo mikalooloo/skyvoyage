@@ -49,7 +49,7 @@ centered = false
 [node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 script = ExtResource( 5 )
-speed = -30.0
+default_speed = -30.0
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/Layer2"]
 material = SubResource( 3 )
@@ -59,7 +59,7 @@ centered = false
 [node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 script = ExtResource( 5 )
-speed = -40.0
+default_speed = -40.0
 
 [node name="Sprite3" type="Sprite" parent="ParallaxBackground/Layer3"]
 material = SubResource( 4 )
@@ -69,7 +69,7 @@ centered = false
 [node name="Layer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 320, 180 )
 script = ExtResource( 5 )
-speed = -50.0
+default_speed = -50.0
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/Layer4"]
 material = SubResource( 5 )
